@@ -71,9 +71,9 @@ HABIT_TRACKER-T
 ├── index.html      # Main HTML file
 └── README.md       # Project documentation
 ```
+---
 
-
-## ✨ Features
+## Features
 
 - Add, delete, and tick habits  
 - View a **weekly overview** with streak tracking  
@@ -82,6 +82,7 @@ HABIT_TRACKER-T
 - Reset all habits with one click  
 - Manual **dark mode toggle** (saved in localStorage)  
 - Fully responsive and mobile-friendly 
+---
 
 ## Usage
 
@@ -103,8 +104,65 @@ HABIT_TRACKER-T
 ### Export / Import Data
 
 - **Export JSON**: Downloads your current habits and logs.
-- **Import JSON**: Upload a JSON file exported previously to restore habits.
 
+#### Exporting  Data
+> You can export the entire habit list and progress to a JSON file.
+
++ Example:
+   * Click Export Data (the **Export** button).
+   * A file named habits-export.json will download automatically.
+```json
+   {
+  "habits": [
+    {
+      "id": "id-ab123xyz",
+      "name": "Exercise",
+      "createdOn": "2025-10-10",
+      "log": {
+        "2025-10-10": true,
+        "2025-10-11": true,
+        "2025-10-12": false
+      }
+    },
+    {
+      "id": "id-bc234qwe",
+      "name": "Read 10 pages",
+      "createdOn": "2025-10-08",
+      "log": {
+        "2025-10-08": true,
+        "2025-10-09": true
+      }
+    }
+  ]
+}
+```
+#### Importing Data
+- **Import JSON**: Upload a JSON file exported previously to restore habits.
++ To restore previously exported habits:
+   * Click the Import JSON button.
+   * Choose a file like habits-export.json.
+   * The app will automatically load and display the saved habits.
+
+* Example of Valid Import File
+   + Make sure your JSON matches this structure:
+```json
+{
+  "habits": [
+    {
+      "id": "id-xyz123",
+      "name": "Meditate",
+      "createdOn": "2025-10-01",
+      "log": {
+        "2025-10-13": true,
+        "2025-10-14": true
+      }
+    }
+  ]
+}
+
+```
+
+---
 ### Reset All
 
 - **Reset all** removes all habits and logs permanently from your browser.
