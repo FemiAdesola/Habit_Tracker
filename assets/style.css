@@ -243,27 +243,3 @@ input[type="text"] {
 .small {
   font-size: 0.9rem;
 }
-
-/* ==================================
-   Responsive
-   ================================== */
-@media (max-width: 600px) {
-  .table-header,
-  .habit-row {
-    grid-template-columns: 1.4fr repeat(7, 1fr) 1fr 1fr;
-    min-width: 600px;
-  }
-
-  .table-header div,
-  .habit-cell,
-  .streak-cell,
-  .actions {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
-
-  .day-btn {
-    width: 30px;
-    height: 30px;
-  }
-}
