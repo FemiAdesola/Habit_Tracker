@@ -66,6 +66,7 @@ HABIT_TRACKER-T
 │   ├── FrontDark.png
 │   ├── FrontDark.png
 │   ├── HabitPage.png
+│   ├── JSON.png
 │   └── MobileView.png
 ├── js
 │   └── app.js       # JavaScript logic
@@ -122,7 +123,7 @@ HABIT_TRACKER-T
    {
   "habits": [
     {
-      "id": "id-ab123xyz",
+      "id": "898ad458-e3a0-4901-935d-f894949750ba",
       "name": "Exercise",
       "createdOn": "2025-10-10",
       "log": {
@@ -132,7 +133,7 @@ HABIT_TRACKER-T
       }
     },
     {
-      "id": "id-bc234qwe",
+      "id": "898ad458-e3a0-4901-935d-f894949750bc",
       "name": "Read 10 pages",
       "createdOn": "2025-10-08",
       "log": {
@@ -156,7 +157,7 @@ HABIT_TRACKER-T
 {
   "habits": [
     {
-      "id": "id-xyz123",
+      "id": "898ad458-e3a0-4901-935d-f894949750b0",
       "name": "Meditate",
       "createdOn": "2025-10-01",
       "log": {
@@ -168,7 +169,8 @@ HABIT_TRACKER-T
 }
 
 ```
-
+Example from export JSON file
+![JSON file](/img/JSON.png)
 ---
 ### Reset All
 
