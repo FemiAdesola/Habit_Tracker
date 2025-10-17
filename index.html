@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Habit Tracker</title>
+    
+    <!-- Import style -->
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
@@ -14,11 +16,13 @@
         <p>Add habits, tick your day, and keep your streaks going</p>
         <button id="dark-mode-toggle" class="action-btn">🌙</button>
       </header>
+
       <!-- Tip Section -->
       <section class="tip" aria-live="polite">
         <strong>Tip:</strong> Click a day cell to toggle. Use Tab to focus, then
         Spacebar or Enter to toggle.
       </section>
+
       <!-- Add Habit Form -->
       <section class="card" aria-labelledby="add-title">
         <h2 id="add-title">Add a habit</h2>
@@ -35,6 +39,7 @@
           <button type="submit" class="btn">Add</button>
         </form>
       </section>
+
       <!-- Weekly Tracker -->
       <section class="card" aria-labelledby="tracker-title">
         <div class="tracker-header">
@@ -58,6 +63,7 @@
           <div id="rows"></div>
         </div>
       </section>
+
       <!-- Manage Section -->
       <section class="card" aria-labelledby="manage-title">
         <h2 id="manage-title">Manage data</h2>
@@ -79,11 +85,13 @@
         </p>
       </section>
 
+      <!-- Footer Section -->
       <footer>
         This app is Bbuilt with HTML, CSS, and JavaScript — no server required.
       </footer>
     </main>
-
+    
+    <!-- Script Section -->
     <script src="/js/app.js" defer></script>
   </body>
 </html>

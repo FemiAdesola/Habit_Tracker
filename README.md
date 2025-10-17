@@ -6,6 +6,8 @@ A simple **client-side Habit Tracker** built with **HTML, CSS, and Vanilla JavaS
 
 > The instructions provided here apply to both Windows and Mac users.
 
+<code style="color : greenyellow"><strong>View the website link [here](https://femi-oyinloye-habit-tracker.netlify.app)</strong></code>
+
 ## Installation / Setup
 1. Clone or download this repository:
 ```bash
@@ -46,14 +48,10 @@ Simply open `index.html` in your browser. All data is stored locally using `loca
 - **LocalStorage persistence** — all data (habits, streaks, and theme) is saved locally  
 ---
 
-
-View the website link [here](https://femi-habit-tracker.netlify.app/)
-
 ## Front page
 | Desktop view | Mobile view|
 |-------------|--------------|
 | ![Habit Tracker](/img/HabitPage.png) | ![MobileView](/img/MobileView.png) |
-
 
 ---
 

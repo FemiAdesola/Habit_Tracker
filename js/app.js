@@ -341,7 +341,6 @@ resetBtn.addEventListener("click", () => {
   });
 })();
 
-
 // =========================
 //  INITIAL RENDER
 // =========================
