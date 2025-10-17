@@ -102,6 +102,7 @@ const habitInput = document.getElementById("habit-name");
 const exportBtn = document.getElementById("export-json");
 const importInput = document.getElementById("import-json");
 const resetBtn = document.getElementById("reset-all");
+const darkModeToggle = document.getElementById("dark-mode-toggle"); // For dark and ligh theme
 
 // ===========================================================================
 // THE INITIALIZATION  STATE FOR LOCALSTORAGE AND RENDERING THE HABIT
@@ -217,11 +218,12 @@ function renderHabitRow(habit) {
   actions.className = "actions";
 
   const tickBtn = document.createElement("button");
+  tickBtn.className = "action-btn";
   tickBtn.textContent = "Tick today";
   tickBtn.addEventListener("click", () => toggleLog(habit.id, todayKey()));
 
   const delBtn = document.createElement("button");
-  delBtn.className = "delete";
+  delBtn.className = "action-btn delete";
   delBtn.textContent = "Delete";
   delBtn.addEventListener("click", () => {
     if (confirm(`Delete habit "${habit.name}"?`)) {
@@ -320,6 +322,25 @@ resetBtn.addEventListener("click", () => {
   saveState(state);
   render();
 });
+
+// =========================
+//  DARK MODE TOGGLE
+// =========================
+
+// Initializes dark mode toggle button with persistence
+(function initDarkMode() {
+  const pref = localStorage.getItem("darkMode") === "true";
+  if (pref) document.body.classList.add("dark");
+
+  darkModeToggle.textContent = pref ? "☀️" : "🌙";
+
+  darkModeToggle.addEventListener("click", () => {
+    const isDark = document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode", isDark);
+    darkModeToggle.textContent = isDark ? "☀️" : "🌙";
+  });
+})();
+
 
 // =========================
 //  INITIAL RENDER

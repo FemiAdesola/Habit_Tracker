@@ -39,7 +39,7 @@ code .   # opens VS Code if available
 Simply open `index.html` in your browser. All data is stored locally using `localStorage`.
 
 ---
-## 🛠 Tech Stack
+## Tech Stack
 - HTML5
 - CSS3 (custom properties, responsive layout)
 - **Vanilla JS only** — no frameworks, just modern JavaScript  
@@ -63,6 +63,8 @@ HABIT_TRACKER-T
 ├── assets
 │   └── style.css       # Stylesheet
 ├── img
+│   ├── FrontDark.png
+│   ├── FrontDark.png
 │   ├── HabitPage.png
 │   └── MobileView.png
 ├── js
@@ -82,6 +84,7 @@ HABIT_TRACKER-T
 - Reset all habits with one click  
 - Manual **dark mode toggle** (saved in localStorage)  
 - Fully responsive and mobile-friendly 
+- **Persistent theme toggle** — remembers the dark/light preference  
 ---
 
 ## Usage
@@ -104,6 +107,10 @@ HABIT_TRACKER-T
 ### Export / Import Data
 
 - **Export JSON**: Downloads your current habits and logs.
+
+### Toggling Theme
+- Click the **🌙 / ☀️** icon in the header  to switch themes.
+  * The preference is saved automatically.
 
 #### Exporting  Data
 > You can export the entire habit list and progress to a JSON file.
@@ -166,6 +173,14 @@ HABIT_TRACKER-T
 ### Reset All
 
 - **Reset all** removes all habits and logs permanently from your browser.
+
+---
+
+## Dark and Light Theme
+
+| Dark Theme | Light Theme |
+|-------------|--------------|
+| ![Dark mode](/img/FrontDark.png) | ![Light mode](/img/FrontLight.png) |
 
 ---
 
