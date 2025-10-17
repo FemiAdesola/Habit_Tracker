@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install tools if present
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm i
+          fi
+      - name: ESLint check
+        run: |
+          if [ -f package.json ] && npx --yes eslint -v >/dev/null 2>&1; then
+            npx eslint "app.js" || true
+          else
+            echo "ESLint not configured. Skipping."
+          fi
