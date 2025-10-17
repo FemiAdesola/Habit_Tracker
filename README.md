@@ -6,7 +6,7 @@ A simple **client-side Habit Tracker** built with **HTML, CSS, and Vanilla JavaS
 
 > The instructions provided here apply to both Windows and Mac users.
 
-<code style="color : greenyellow"><strong>View the website link [here](https://femi-oyinloye-habit-tracker.netlify.app)</strong></code>
+<code style="color : greenyellow"><strong>View the website link [here](https://femi-oyinloye-habit-tracker.netlify.app) and GitHub site [here](https://femiadesola.github.io/Habit_Tracker/)</strong></code>
 
 ## Installation / Setup
 1. Clone or download this repository:
