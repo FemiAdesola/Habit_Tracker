@@ -23,7 +23,6 @@ A simple **client-side Habit Tracker** built with **HTML, CSS, and Vanilla JavaS
 ```
 3. Open `index.html` in your browser.
 
-
 Windows (CMD)
 ```bash
 mkdir Habit_Tracker
@@ -65,6 +64,7 @@ HABIT_TRACKER-T
 ├── img
 │   ├── FrontDark.png
 │   ├── FrontDark.png
+│   ├── GitHub.png
 │   ├── HabitPage.png
 │   ├── JSON.png
 │   └── MobileView.png
@@ -209,10 +209,9 @@ Example from export JSON file
 ```markdown
   # Habit Tracker
 
-[![Habit Tracker](https://github.com/FemiAdesola/Habit_Tracker/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/FemiAdesola/Habit_Tracker/actions)
+[![Habit_Tracker](https://github.com/FemiAdesola/Habit_Tracker/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/FemiAdesola/Habit_Tracker/actions)
 
 ```
-
 
 ### Step 3: Check the Actions on GitHub
 - On GitHub open the repository
@@ -226,15 +225,14 @@ Example from export JSON file
   * ✅ Passing (green) when the workflow succeeds.
   * ❌ Failing (red) if the workflow encounters an error.
 
++ Result from GitHub 
+![GitHub](/img/GitHub.png)
 ---
-
-
 
 ## GitHub Pages Deployment
 1. Push repo to GitHub
 2. Settings → Pages → Branch: main, folder: root (/)
 3. Access at: `https://femiadesola.github.io/Habit_Tracker/`
-
 
 ## Notes
 
