@@ -1,4 +1,4 @@
-name: Deploy Pages
+name: Habit_Tracker
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
      # This part fixes the "Missing environment" error
     environment:
       name: github-pages
-      url: ${{ steps.Habit_Tracker.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
       - uses: actions/checkout@v4
@@ -29,5 +29,5 @@ jobs:
         with:
           path: .
       - name: Habit_Tracker
-        id: Habit_Tracker
+        id: deploy
         uses: actions/deploy-pages@v4
