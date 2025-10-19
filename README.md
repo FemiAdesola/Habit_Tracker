@@ -1,3 +1,5 @@
+[![Habit Tracker](https://github.com/FemiAdesola/Habit_Tracker/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/FemiAdesola/Habit_Tracker/actions)
+
 # Habit Tracker
 
 A simple **client-side Habit Tracker** built with **HTML, CSS, and Vanilla JavaScript**.
