@@ -1,6 +1,6 @@
-[![Habit Tracker](https://github.com/FemiAdesola/Habit_Tracker/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/FemiAdesola/Habit_Tracker/actions)
-
 # Habit Tracker
+
+[![Habit_Tracker](https://github.com/FemiAdesola/Habit_Tracker/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/FemiAdesola/Habit_Tracker/actions)
 
 A simple **client-side Habit Tracker** built with **HTML, CSS, and Vanilla JavaScript**.
 
@@ -192,6 +192,43 @@ Example from export JSON file
 - Tested on Chrome, Firefox, Edge, and Safari.
 
 ---
+## Steps to Add the GitHub Actions Badge (Habit Tracker)
+### Step 1: Create a GitHub Actions Workflow
++ In your project, create to:
+  * .github/workflows/
++ Create a new file (if not already present):
+  * pages.yml
+- Add the GitHub Pages deployment workflow — for example:\
+[pages.yml](.github/workflows/pages.yml)
+
+- Commit and push the new workflow file
+
+### Step 2: Add Badge to README.md
+- Open README.md file and paste the markdown snippet at the top (usually below the project title).
+  * Example
+```markdown
+  # Habit Tracker
+
+[![Habit Tracker](https://github.com/FemiAdesola/Habit_Tracker/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/FemiAdesola/Habit_Tracker/actions)
+
+```
+
+
+### Step 3: Check the Actions on GitHub
+- On GitHub open the repository
+  * go to Actions then 
+  * Click on Deploy Pages
+
+### Step 4: Verify the Badge
+- Push your updated README to GitHub.
+- Open your repository’s main page.
+- The badge should now appear — showing:
+  * ✅ Passing (green) when the workflow succeeds.
+  * ❌ Failing (red) if the workflow encounters an error.
+
+---
+
+
 
 ## GitHub Pages Deployment
 1. Push repo to GitHub
