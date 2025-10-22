@@ -58,21 +58,30 @@ Simply open `index.html` in your browser. All data is stored locally using `loca
 
 ## Project Structure
 ```bash
-HABIT_TRACKER-T
-├── assets
-│   └── style.css       # Stylesheet
-├── img
+
+HABIT_TRACKER-T/
+├── .github/
+│   └── workflows/      # Contains GitHub Actions workflow files
+│       ├── ci.yml      # Continuous Integration (CI) pipeline
+│       └── pages.yml   # GitHub actions CI/CD
+├── assets/
+│   └── style.css      # Stylesheet (main CSS file that defines the visual styling of the web application)
+├── img/                # Contains image assets used in the application.
 │   ├── FrontDark.png
-│   ├── FrontDark.png
+│   ├── FrontLight.png
 │   ├── GitHub.png
 │   ├── HabitPage.png
 │   ├── JSON.png
 │   └── MobileView.png
-├── js
+├── js/
 │   └── app.js       # JavaScript logic
 ├── .gitignore
-├── index.html      # Main HTML file
-└── README.md       # Project documentation
+├── .md
+├── .eslint.config.mjs
+├── index.html            # Main HTML file
+├── package-lock.json
+├── package.json        #
+└── README.md           # Project documentation
 ```
 ---
 
