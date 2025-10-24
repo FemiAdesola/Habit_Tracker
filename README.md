@@ -109,6 +109,7 @@ HABIT_TRACKER-T/
 
 - Click the day button to toggle completion.
 - Use **Tab** to focus a day button, then press **Space** or **Enter** to mark it.
+- Possibility to toggle only day before today
 
 ### Viewing Streaks
 

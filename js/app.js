@@ -175,6 +175,13 @@ function renderHabitRow(habit) {
   nameCol.textContent = habit.name;
   row.appendChild(nameCol);
 
+  // For making past date disable
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+  const todayKeyStr = toKey(today);
+  const yesterdayKeyStr = toKey(yesterday);
+
   // For generating day buttons for the past week
   weekKeys.forEach((key) => {
     const col = document.createElement("div");
@@ -187,21 +194,34 @@ function renderHabitRow(habit) {
     btn.dataset.habitId = habit.id;
     btn.dataset.dateKey = key;
 
-    // Accessibility attributes
-    btn.setAttribute("aria-label", `${habit.name} on ${key}`);
-    btn.setAttribute("role", "checkbox");
-    btn.setAttribute("aria-checked", String(!!habit.log[key]));
+    // Apply special color classes
+    if (key === todayKeyStr) {
+      btn.classList.add("today-btn");
+    } else if (key === yesterdayKeyStr) {
+      btn.classList.add("yesterday-btn");
+    }
 
-    // Click to toggle day
-    btn.addEventListener("click", onToggleDay);
+    // Disable buttons for dates older than yesterday or future dates
+    if (key < yesterdayKeyStr || key > todayKeyStr) {
+      btn.disabled = true;
+      btn.classList.add("disabled");
+    } else {
+      // Accessibility attributes
+      btn.setAttribute("aria-label", `${habit.name} on ${key}`);
+      btn.setAttribute("role", "checkbox");
+      btn.setAttribute("aria-checked", String(!!habit.log[key]));
 
-    // Support Enter/Space keys for toggling (keyboard accessibility)
-    btn.addEventListener("keydown", (e) => {
-      if (["Enter", " ", "Spacebar", "Space"].includes(e.key)) {
-        e.preventDefault();
-        btn.click();
-      }
-    });
+      // Click to toggle day
+      btn.addEventListener("click", onToggleDay);
+
+      // Support Enter/Space keys for toggling (keyboard accessibility)
+      btn.addEventListener("keydown", (e) => {
+        if (["Enter", " ", "Spacebar", "Space"].includes(e.key)) {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    }
 
     col.appendChild(btn);
     row.appendChild(col);

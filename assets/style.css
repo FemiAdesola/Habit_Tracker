@@ -27,6 +27,13 @@
 
   /* Table header */
   --table-header-bg: #f8fbfe;
+
+  /* days button */
+  --day-success-bg:#34a853;
+  --day-success-bd:#0f9d58;
+  --day-warning-bg:#fbbc04;
+  --day-warning-bd:#e6d500;
+
 }
 
 /* ==================================
@@ -159,7 +166,7 @@ input[type="text"] {
 
 .btn {
   background: var(--brand-1);
-  color: #fff;
+  color: var(--card);
   border: none;
   padding: 10px 14px;
   border-radius: 8px;
@@ -232,6 +239,28 @@ input[type="text"] {
   background: var(--success-bg);
   color: var(--success-text);
   font-weight: 700;
+}
+
+/* Disabled (past or future dates) */
+.day-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: #ccc !important;
+  color: #666 !important;
+}
+
+/* Yesterday (highlighted yellow) */
+.day-btn.yesterday-btn {
+  background-color: var(--day-warning-bg);
+  border: 1px solid var(--day-warning-bd);
+  color: var(--card);
+}
+
+/* Today (highlighted green) */
+.day-btn.today-btn {
+  background-color: var(--day-success-bg);
+  border: 1px solid var(--day-success-bd);
+  color: var(--card);
 }
 
 /* ==================================
