@@ -2,7 +2,8 @@
 //  FOR DATE UTILITIES
 // =========================
 
-// For Converting a Date object into a string key like "2025-10-16"
+// These functions generate date strings (like "2025-10-16")
+// to uniquely represent each day for tracking purposes.
 // For using it as a unique key for logging daily habit completion
 function toKey(d) {
   const dt = new Date(d);
@@ -18,6 +19,7 @@ function todayKey() {
 }
 
 // For generating an array of the last 7 date keys, including today
+// Generate a list of date keys for the last 7 days
 function last7Keys() {
   const out = [];
   const base = new Date();
@@ -32,11 +34,13 @@ function last7Keys() {
 // =========================
 //  FOR STORAGING UTILITIES
 // =========================
+// These functions handle saving and loading data from
+// localStorage so user progress is kept between sessions.
 
-// LocalStorage key used for saving app data
+// Key name for saving app data to localStorage
 const STORAGE_KEY = "habits_v4";
 
-// For loading the saved state from localStorage, or returns a default empty state
+// Loads saved state from localStorage; if missing or invalid, returns an empty state
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -57,6 +61,7 @@ function saveState(state) {
 // ============================
 // FOR MODELLING THE FUNCTIONS
 // ============================
+// These define how habits are created and managed in memory.
 
 // This line is for generating a unique ID for each habit (uses crypto if available)
 function uid() {
@@ -93,22 +98,23 @@ function computeStreak(habit, upTo = new Date()) {
 // ===================================================
 //  FOR DOCUMENT OBJECT MODEL (DOM) REFERENCES
 // ===================================================
+// Collecting all the key elements from the HTML for easy use.
 
 // Cached DOM elements for performance and easy reuse
-const rows = document.getElementById("rows");
-const weekRange = document.getElementById("week-range");
-const habitForm = document.getElementById("habit-form");
-const habitInput = document.getElementById("habit-name");
-const exportBtn = document.getElementById("export-json");
-const importInput = document.getElementById("import-json");
-const resetBtn = document.getElementById("reset-all");
-const darkModeToggle = document.getElementById("dark-mode-toggle"); // For dark and ligh theme
+const rows = document.getElementById("rows");                 // Container for all habit rows
+const weekRange = document.getElementById("week-range");      // Displays the 7-day range
+const habitForm = document.getElementById("habit-form");      // Form for adding new habits
+const habitInput = document.getElementById("habit-name");     // Text input for habit name
+const exportBtn = document.getElementById("export-json");     // Button to export data
+const importInput = document.getElementById("import-json");   // File input for importing JSON
+const resetBtn = document.getElementById("reset-all");        // Button to reset app data
+const darkModeToggle = document.getElementById("dark-mode-toggle"); // Toggle for dark/light mode
 
 // ===========================================================================
 // THE INITIALIZATION  STATE FOR LOCALSTORAGE AND RENDERING THE HABIT
 // ===========================================================================
 
-// Load saved habits or initialize empty list
+// Load existing habits from localStorage and set up date range.
 let state = loadState();
 
 // Generate list of date keys for the previous week
@@ -118,8 +124,10 @@ weekRange.textContent = `${weekKeys[0]} to ${weekKeys[6]}`;
 // =========================
 //  FOR RENDERING FUNCTION
 // =========================
+// These functions visually update the habit table in the browser.
 
-// The Function to rebuild the habit tracker table based on current state
+// Rebuilds the entire list of habits in the UI.
+// If no habits exist, it calls a separate function to display a placeholder.
 function render() {
   rows.innerHTML = "";
 
@@ -133,17 +141,18 @@ function render() {
   state.habits.forEach(renderHabitRow);
 }
 
-// Renders the "No habits yet" placeholder row
+// Main render function – rebuilds the entire table the "No habits yet" placeholder row
 function renderEmptyRow() {
   const row = document.createElement("div");
   row.className = "habit-row";
 
+  // Habit name
   const nameCol = document.createElement("div");
   nameCol.className = "habit-name";
   nameCol.textContent = "No habits yet";
   row.appendChild(nameCol);
 
-  // The empty cells for days of the week
+  // Creating buttons for the past 7 days
   weekKeys.forEach(() => {
     const col = document.createElement("div");
     col.className = "habit-cell";
@@ -164,7 +173,8 @@ function renderEmptyRow() {
   rows.appendChild(row);
 }
 
-// This function is to render a single habit row with its 7-day buttons, streak, and actions
+// Renders one habit row — including:
+// habit name, daily toggle buttons, streak count, and “Tick Today/Delete” buttons.
 function renderHabitRow(habit) {
   const row = document.createElement("div");
   row.className = "habit-row";
@@ -227,7 +237,7 @@ function renderHabitRow(habit) {
     row.appendChild(col);
   });
 
-  // For streakong the column count
+  // Column showing current streak count
   const streakCol = document.createElement("div");
   streakCol.className = "streak-cell";
   streakCol.textContent = computeStreak(habit);
@@ -263,17 +273,19 @@ function renderHabitRow(habit) {
 //  ACTION HANDLERS
 // =========================
 
-// Handles clicking a day cell button
+// Handles clicking a day cell button (When a user clicks a day cell, toggle the habit’s log for the corresponding date.)
 function onToggleDay(e) {
   const btn = e.currentTarget;
   toggleLog(btn.dataset.habitId, btn.dataset.dateKey);
 }
 
-// Function to toggle a specific day's "checked" state for a habit
+// Toggles (checks/unchecks) the specified day for the given habit.
+// Updates localStorage and re-renders the UI immediately.
 function toggleLog(habitId, dateKey) {
   const habit = state.habits.find((h) => h.id === habitId);
   if (!habit) return;
 
+  // Remove date if already checked, otherwise add it
   if (habit.log[dateKey]) delete habit.log[dateKey];
   else habit.log[dateKey] = true;
 
@@ -314,7 +326,8 @@ exportBtn.addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
-// Imports habits from a user-provided JSON file
+
+// Import: Reads and loads habits from a selected user-provided JSON file
 importInput.addEventListener("change", async (e) => {
   const file = e.target.files?.[0];
   if (!file) return;
@@ -335,7 +348,7 @@ importInput.addEventListener("change", async (e) => {
   e.target.value = "";
 });
 
-// Resets all data (clears localStorage)
+// Reset: Clears all saved data after user confirmation (clears localStorage)
 resetBtn.addEventListener("click", () => {
   if (!confirm("Remove all habits and logs from this browser?")) return;
   state = { habits: [] };
@@ -347,7 +360,8 @@ resetBtn.addEventListener("click", () => {
 //  DARK MODE TOGGLE
 // =========================
 
-// Initializes dark mode toggle button with persistence
+// Initializes and manages dark mode preference using localStorage persistence.
+// The toggle button switches between light and dark themes visually and saves preference.
 (function initDarkMode() {
   const pref = localStorage.getItem("darkMode") === "true";
   if (pref) document.body.classList.add("dark");
