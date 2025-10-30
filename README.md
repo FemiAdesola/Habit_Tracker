@@ -55,10 +55,10 @@ Simply open `index.html` in your browser. All data is stored locally using `loca
 | ![Habit Tracker](/img/HabitPage.png) | ![MobileView](/img/MobileView.png) |
 
 
-> The image is a screenshot of a digital habit tracker. It shows a weekly view of a habits being tracked: "Bible Reading". The tracker allows users to mark days as complete and displays a streak count.
-  * The habits being tracked is "Bible Reading."
+> The image is a screenshot of a digital habit tracker. It shows a weekly view of a habits being tracked: "Bible Study". The tracker allows users to mark days as complete and displays a streak count.
+  * The habits being tracked is "Bible Study."
   * The time frame shown is the week from October 18 to October 24, 2025.
-  * The streak counts is 12 for "Bible Reading."
+  * The streak counts is 12 for "Bible Study."
   * The interface includes options to add new habits, tick off days, and delete habits.
 ---
 
