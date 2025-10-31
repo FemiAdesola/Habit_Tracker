@@ -73,6 +73,7 @@ HABIT_TRACKER-T/
 ├── assets/
 │   └── style.css      # Stylesheet (main CSS file that defines the visual styling of the web application)
 ├── img/                # Contains image assets used in the application.
+│   ├── ErrorMessage.png
 │   ├── FrontDark.png
 │   ├── FrontLight.png
 │   ├── GitHub.png
@@ -110,6 +111,10 @@ HABIT_TRACKER-T/
 1. Enter the habit name in the input field under "Add a habit".
 2. Click **Add** or press **Enter**.
 3. The habit appears in the weekly tracker.
+4. Duplicate name check
+  * If the user enters a duplicate name → A red message appears under the input box
+  
+  ![errorMessage](/img/ErrorMessage.png)
 
 ### Ticking a Habit
 

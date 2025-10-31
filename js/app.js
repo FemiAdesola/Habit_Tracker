@@ -101,14 +101,15 @@ function computeStreak(habit, upTo = new Date()) {
 // Collecting all the key elements from the HTML for easy use.
 
 // Cached DOM elements for performance and easy reuse
-const rows = document.getElementById("rows");                 // Container for all habit rows
-const weekRange = document.getElementById("week-range");      // Displays the 7-day range
-const habitForm = document.getElementById("habit-form");      // Form for adding new habits
-const habitInput = document.getElementById("habit-name");     // Text input for habit name
-const exportBtn = document.getElementById("export-json");     // Button to export data
-const importInput = document.getElementById("import-json");   // File input for importing JSON
-const resetBtn = document.getElementById("reset-all");        // Button to reset app data
+const rows = document.getElementById("rows"); // Container for all habit rows
+const weekRange = document.getElementById("week-range"); // Displays the 7-day range
+const habitForm = document.getElementById("habit-form"); // Form for adding new habits
+const habitInput = document.getElementById("habit-name"); // Text input for habit name
+const exportBtn = document.getElementById("export-json"); // Button to export data
+const importInput = document.getElementById("import-json"); // File input for importing JSON
+const resetBtn = document.getElementById("reset-all"); // Button to reset app data
 const darkModeToggle = document.getElementById("dark-mode-toggle"); // Toggle for dark/light mode
+const errorMsg = document.getElementById("habit-error"); // Element for displaying form error messages
 
 // ===========================================================================
 // THE INITIALIZATION  STATE FOR LOCALSTORAGE AND RENDERING THE HABIT
@@ -301,11 +302,32 @@ function toggleLog(habitId, dateKey) {
 habitForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = habitInput.value.trim();
-  if (!name) return;
+  errorMsg.style.display = "none"; // Hide previous error
 
+  // Validate non-empty name F
+ if (!name) {
+    errorMsg.textContent = "Please enter a habit name.";
+    errorMsg.style.display = "block";
+    return;
+  }
+
+  // Check if the habit name already exists (case-insensitive)
+  const exists = state.habits.find(
+    (h) => h.name.toLowerCase() === name.toLowerCase()
+  );
+
+  if (exists) {
+    errorMsg.textContent = `Habit "${name}" already exists.`;
+    errorMsg.style.display = "block";
+    habitInput.value = "";
+    return;
+  }
+
+  // Add new habit if not existing F
   state.habits.push(newHabit(name));
   saveState(state);
   habitInput.value = "";
+  errorMsg.style.display = "none"; // Hide error
   render();
 });
 
@@ -325,7 +347,6 @@ exportBtn.addEventListener("click", () => {
   a.click();
   URL.revokeObjectURL(url);
 });
-
 
 // Import: Reads and loads habits from a selected user-provided JSON file
 importInput.addEventListener("change", async (e) => {

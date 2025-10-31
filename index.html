@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-     <!-- =========================================================
+    <!-- =========================================================
       HABIT TRACKER - MAIN HTML FILE
       -----------------------------------------------------------
       This HTML page serves as the front-end structure for the Habit
@@ -14,12 +14,11 @@
 
     <!-- Responsive viewport makes it display properly on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- Page title shown in browser tab -->
     <title>Habit Tracker</title>
-    
-    
-   <!-- ================================
+
+    <!-- ================================
           CSS STYLESHEET IMPORT
          --------------------------------
          Loads external CSS file for layout, colors, and theme styling.
@@ -45,7 +44,7 @@
         <button id="dark-mode-toggle" class="action-btn">🌙</button>
       </header>
 
-       <!-- =========================================================
+      <!-- =========================================================
           TIP / INSTRUCTION SECTION
         ------------------------------------------------------------
         Provides accessibility and usability guidance for users.
@@ -70,18 +69,23 @@
       <section class="card" aria-labelledby="add-title">
         <h2 id="add-title">Add a habit</h2>
         <form id="habit-form">
-
-          <!-- Hidden label improves screen reader accessibility -->
           <label for="habit-name" class="sr-only">Habit name</label>
-          <input
-            id="habit-name"
-            name="habitName"
-            type="text"
-            required
-            placeholder="e.g. Drink water"
-            autocomplete="off"
-          />
-          <button type="submit" class="btn">Add</button>
+
+          <!-- group input and button together -->
+          <div class="input-group">
+            <input
+              id="habit-name"
+              name="habitName"
+              type="text"
+              required
+              placeholder="e.g. Drink water"
+              autocomplete="off"
+            />
+            <button type="submit" class="btn">Add</button>
+          </div>
+
+          <!-- error message directly under the input group -->
+          <small id="habit-error" class="inputError"></small>
         </form>
       </section>
 
@@ -97,7 +101,6 @@
       ============================================================ -->
       <section class="card" aria-labelledby="tracker-title">
         <div class="tracker-header">
-
           <!-- This element is dynamically filled with date range text -->
           <h2 id="tracker-title">This week</h2>
           <div id="week-range" class="muted"></div>
@@ -136,7 +139,6 @@
       <section class="card" aria-labelledby="manage-title">
         <h2 id="manage-title">Manage data</h2>
         <div class="actions">
-
           <!-- Creates downloadable file of all stored habits -->
           <button id="export-json" class="export">Export JSON</button>
           <label class="import">
@@ -154,7 +156,8 @@
           <button id="reset-all" class="delete">Reset all</button>
         </div>
         <p class="muted small">
-          Data is stored locally in your browser using local storage under application.
+          Data is stored locally in your browser using local storage under
+          application.
         </p>
       </section>
 
@@ -168,7 +171,7 @@
         This app is built with HTML, CSS, and JavaScript — no server required.
       </footer>
     </main>
-    
+
     <!-- Script Section -->
     <script src="js/app.js" defer></script>
   </body>
