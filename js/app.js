@@ -387,8 +387,6 @@ resetBtn.addEventListener("click", () => {
   const pref = localStorage.getItem("darkMode") === "true";
   if (pref) document.body.classList.add("dark");
 
-  darkModeToggle.textContent = pref ? "☀️" : "🌙";
-
   darkModeToggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark");
     localStorage.setItem("darkMode", isDark);
