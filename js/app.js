@@ -300,7 +300,7 @@ function toggleLog(habitId, dateKey) {
 
 // For handle form submission to create a new habit
 habitForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); // prevent reload on submit
   const name = habitInput.value.trim();
   errorMsg.style.display = "none"; // Hide previous error
 
@@ -370,7 +370,7 @@ importInput.addEventListener("change", async (e) => {
 });
 
 // Reset: Clears all saved data after user confirmation (clears localStorage)
-resetBtn.addEventListener("click", () => {
+resetBtn.addEventListener("click", () => { // Confirm before resetting all data
   if (!confirm("Remove all habits and logs from this browser?")) return;
   state = { habits: [] };
   saveState(state);
@@ -387,7 +387,7 @@ resetBtn.addEventListener("click", () => {
   const pref = localStorage.getItem("darkMode") === "true";
   if (pref) document.body.classList.add("dark");
 
-  darkModeToggle.addEventListener("click", () => {
+  darkModeToggle.addEventListener("click", () => { // Toggle dark mode on button click
     const isDark = document.body.classList.toggle("dark");
     localStorage.setItem("darkMode", isDark);
     darkModeToggle.textContent = isDark ? "☀️" : "🌙";
