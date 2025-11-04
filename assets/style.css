@@ -23,7 +23,7 @@
 
   /* Tip card */
   --tip-bg: #e8f9ff;
-  --tip-border: var(--brand-1);
+  --tip-border: #019dd5;
 
   /* Table header */
   --table-header-bg: #f8fbfe;
@@ -166,7 +166,7 @@ input[type="text"] {
 
 .btn {
   background: var(--brand-1);
-  color: var(--card);
+  color: #ffffff;
   border: none;
   padding: 10px 14px;
   border-radius: 8px;
@@ -174,6 +174,7 @@ input[type="text"] {
 }
 .btn:hover {
   filter: brightness(1.05);
+  background: #4289cb;
 }
 
 /* Override default form flex for the habit form */
@@ -277,14 +278,14 @@ input[type="text"] {
 .day-btn.yesterday-btn {
   background-color: var(--day-warning-bg);
   border: 1px solid var(--day-warning-bd);
-  color: var(--card);
+  color: #ffffff;
 }
 
 /* Today (highlighted green) */
 .day-btn.today-btn {
   background-color: var(--day-success-bg);
   border: 1px solid var(--day-success-bd);
-  color: var(--card);
+  color: #ffffff;
 }
 
 /* ==================================
