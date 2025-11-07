@@ -71,6 +71,7 @@ HABIT_TRACKER-T/
 │       ├── ci.yml      # Continuous Integration (CI) pipeline
 │       └── pages.yml   # GitHub actions CI/CD
 ├── assets/
+│   ├── favicon.ico
 │   └── style.css      # Stylesheet (main CSS file that defines the visual styling of the web application)
 ├── img/                # Contains image assets used in the application.
 │   ├── ErrorMessage.png
