@@ -262,3 +262,9 @@ Example from export JSON file
 - If ticks do not persist, check that localStorage is allowed (not in private mode).
 
 ---
+
+## 🧾 License
+
+MIT License [Femi Adesola Oyinloye](https://github.com/FemiAdesola) © 2025 
+
+Feel free to fork, modify, and share!
