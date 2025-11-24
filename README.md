@@ -101,7 +101,8 @@ HABIT_TRACKER-T/
 - **Export** and **Import JSON** for backup  
 - Reset all habits with one click  
 - Manual **dark mode toggle** (saved in localStorage)  
-- Fully responsive and mobile-friendly 
+- Fully responsive and mobile-friendly
+-  Merge **existing** file with **newly import** file
 - **Persistent theme toggle** — remembers the dark/light preference  
 ---
 

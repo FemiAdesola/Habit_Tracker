@@ -331,6 +331,34 @@ habitForm.addEventListener("submit", (e) => {
   render();
 });
 
+// Merge imported habits into existing state (preserving logs)
+function mergeHabits(importedHabits) {
+  const existingMap = new Map(state.habits.map(h => [h.name.toLowerCase(), h]));
+
+  for (const imp of importedHabits) {
+    if (!imp || !imp.name) continue;
+    const key = imp.name.toLowerCase();
+
+    if (existingMap.has(key)) {
+      // Merge logs (union)
+      const ex = existingMap.get(key);
+      ex.log = {
+        ...ex.log,
+        ...(imp.log || {})
+      };
+    } else {
+      // Normalize incomplete imported habit objects
+      state.habits.push({
+        id: imp.id || uid(),
+        name: imp.name,
+        createdOn: imp.createdOn || todayKey(),
+        log: typeof imp.log === "object" && imp.log ? imp.log : {}
+      });
+    }
+  }
+}
+
+
 // =========================
 //  EXPORT / IMPORT / RESET
 // =========================
@@ -357,7 +385,10 @@ importInput.addEventListener("change", async (e) => {
     const text = await file.text();
     const data = JSON.parse(text);
     if (!Array.isArray(data.habits)) throw new Error("Invalid format");
-    state = data;
+    // state = data;
+    // Merge instead of replace
+    mergeHabits(data.habits);
+
     saveState(state);
     render();
     alert("Import complete");
