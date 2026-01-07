@@ -113,7 +113,7 @@ button.action-btn {
 header {
   background: linear-gradient(145deg, var(--brand-1), var(--brand-2));
   color: #fff;
-  padding: 24px;
+  padding: 10px;
   border-radius: 12px;
 }
 
@@ -336,4 +336,42 @@ input[type="text"] {
   font-size: 0.9rem;
 }
 
+/* Header container styles */
+.header-container {
+  display: flex;
+  align-items: center; /* vertically center */
+  justify-content: space-between;
+  flex-wrap: wrap; /* for small screens */
+  background-color: #f9f9f9; /* optional */
+}
 
+.header-text {
+  flex: 1 1 200px; /* grow, shrink, minimum width */
+}
+
+.header-image {
+  flex: 1 1 200px; /* grow, shrink, minimum width */
+  text-align: center; /* center image horizontally */
+}
+
+.portfolio-qr {
+  width: 100px;
+  height: auto;
+  border-radius: 8px; /* optional rounded corners */
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column; /* stack vertically on small screens */
+    text-align: center;
+  }
+
+  .header-text {
+    order: 1;
+  }
+
+  .header-image {
+    order: 1;
+  }
+}

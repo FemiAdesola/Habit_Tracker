@@ -10,9 +10,9 @@
       data is stored locally in the user's browser.
     ============================================================ -->
     <meta charset="utf-8" />
-    
-       <!-- favicons in a special local -->
-    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+    <!-- favicons in a special local -->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 
     <!-- Responsive viewport makes it display properly on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -38,12 +38,22 @@
         dark-mode toggle button. The header remains at the top of 
         the interface to give quick context and theme control.
       ============================================================ -->
-      <header>
-        <h1>Habit Tracker</h1>
-        <p>Add habits, tick your day, and keep your streaks going</p>
+      <header class="header-container">
+        <div class="header-text">
+          <h1>Habit Tracker</h1>
+          <p>Add habits, tick your day, and keep your streaks going</p>
 
-        <!-- Button toggles between light and dark mode themes -->
-        <button id="dark-mode-toggle" class="action-btn">🌙</button>
+          <!-- Button toggles between light and dark mode themes -->
+          <button id="dark-mode-toggle" class="action-btn">🌙</button>
+        </div>
+        <div class="header-image">
+          <h2>Scan to view my Portfolio</h2>
+          <img
+            src="assets/Femi_Oyinloye_Portfolio_QR.png"
+            alt="portfolio-qr"
+            class="portfolio-qr"
+          />
+        </div>
       </header>
 
       <!-- =========================================================
